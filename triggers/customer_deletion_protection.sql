@@ -12,7 +12,7 @@ AS $$
     END;
 $$;
 
-CREATE TRIGGER protect_customer_deletion
+CREATE OR REPLACE TRIGGER protect_customer_deletion
 BEFORE DELETE ON customers
 FOR EACH ROW
 EXECUTE FUNCTION protect_customer_deletion();
