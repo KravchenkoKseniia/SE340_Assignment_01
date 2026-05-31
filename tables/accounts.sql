@@ -6,7 +6,7 @@ CREATE TABLE accounts (
     balance DECIMAL(15, 2) NOT NULL CHECK (balance >= 0),
     status TEXT NOT NULL CHECK (status IN ('ACTIVE', 'FROZEN', 'CLOSED')),
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    FOREIGN KEY (customer_id) REFERENCES customers(customer_id) ON DELETE RESTRICT
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id) ON DELETE CASCADE
 );
 
 CREATE INDEX idx_accounts_customer_id ON accounts(customer_id);
